@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const PORT = process.env.PORT || 3001;
+
 
 app.use(cors());
 app.use(express.json());
@@ -14,6 +16,6 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedT
 app.use("/", require("./routes/routes")); // Apparently sets the route paths to be used.
 
 
-app.listen(3001, function () {
-    console.log("Express server running on port 3001");
+app.listen(PORT, () => {
+    console.log(`Express server running on port ${PORT}`);
 }) // If a connection is 'heard' then console logs this message.
