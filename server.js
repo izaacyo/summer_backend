@@ -14,13 +14,6 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedT
 app.use("/", require("./routes/routes")); // Apparently sets the route paths to be used.
 
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('summerback/build'));
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'summerback', 'build', 'index.html'))
-    })
-}
-
 app.listen(3001, function () {
     console.log("Express server running on port 3001");
 }) // If a connection is 'heard' then console logs this message.
