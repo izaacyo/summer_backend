@@ -4,7 +4,9 @@ const mongoose = require("mongoose");
 const instructorSchema = {
     name: String,
     rank: String,
-    title: String
+    img: String,
+    title: String,
+    desc: String
 }
 
 // The schema is used to create a constructor, called a model, for all the documents(items) in the database. 
