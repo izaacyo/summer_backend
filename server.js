@@ -1,4 +1,4 @@
-require("dotenv/config"); // See the connection below for info.
+require("dotenv/config"); // See the connection below for info!
 const express = require("express");
 const app = express();
 const cors = require("cors");

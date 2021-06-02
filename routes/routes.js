@@ -8,11 +8,15 @@ const News = require("../models/newsModel");
 router.route("/add").post((req, res) => {
     const name = req.body.name;
     const rank = req.body.rank;
+    const img = req.body.img;
     const title = req.body.title;
+    const desc = req.body.desc;
     const newInstructor = new Instructor({
         name,
         rank,
-        title
+        img,
+        title,
+        desc
     });
     newInstructor.save();
 });
