@@ -3,7 +3,6 @@ const router = express.Router();
 const Instructor = require("../models/instructorModel");
 const News = require("../models/newsModel");
 
-
 // The path makes a POST with data from the frontend's body(form). It gets it from the request.
 router.route("/add").post((req, res) => {
     const name = req.body.name;
@@ -31,6 +30,13 @@ router.route("/addnews").post((req, res) => {
     newArticle.save();
 });
 
+router.route("/edit").post((req, res) => {
+    const targetType = req.body.targetType;
+
+    Instructor.findByIdAndUpdate({ _id: "60b8b54091dba74248b05708" }, { 
+        desc: "freshest document in the wuuuhld"
+     }).then(console.log('done edit'));
+});
 
 // The path makes a GET, and the found items get sent as a JSON response.
 router.route("/instructors").get((req, res) => {
