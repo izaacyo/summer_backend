@@ -7,5 +7,4 @@ News.model('Article', require('./newsSchema'))
 
 
 
-
 module.exports = News;
