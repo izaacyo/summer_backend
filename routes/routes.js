@@ -10,12 +10,16 @@ router.route("/add").post((req, res) => {
     const img = req.body.img;
     const title = req.body.title;
     const desc = req.body.desc;
+    const email = req.body.email;
+    const phone = req.body.phone;
     const newInstructor = new Instructor({
         name,
         rank,
         img,
         title,
-        desc
+        desc,
+        email,
+        phone
     });
     newInstructor.save();
 });
@@ -30,12 +34,33 @@ router.route("/addnews").post((req, res) => {
     newArticle.save();
 });
 
+// Updates based on ID.
 router.route("/edit").post((req, res) => {
-    const targetType = req.body.targetType;
+    const targetId = req.body.targetId;
+    const name = req.body.name;
+    const rank = req.body.rank;
+    const img = req.body.img;
+    const title = req.body.title;
+    const desc = req.body.desc;
+    const email = req.body.email;
+    const phone = req.body.phone;
 
-    Instructor.findByIdAndUpdate({ _id: "60b8b54091dba74248b05708" }, { 
-        desc: "freshest document in the wuuuhld"
-     }).then(console.log('done edit'));
+    Instructor.findByIdAndUpdate({ _id: targetId }, { 
+        name: name,
+        rank: rank,
+        img: img,
+        title: title,
+        desc: desc,
+        email: email,
+        phone: phone,
+     }).then(console.log('edited')); // It seems that without this console.log the findBy.. method is not completed.
+});
+
+// Deletes based on ID.
+router.route("/remove").post((req, res) => {
+    const targetId = req.body.targetId;
+
+    Instructor.findByIdAndRemove({ _id: targetId }).then(console.log('removed')); // It seems that without this console.log the findBy.. method is not completed.
 });
 
 // The path makes a GET, and the found items get sent as a JSON response.
