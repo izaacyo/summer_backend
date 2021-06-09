@@ -71,9 +71,14 @@ router.get('/admin-profile', userAuth, checkRole(['admin']), async (req, res) =>
 // Super Admin Protected Route
 
 router.get('/super-admin-profile', userAuth, checkRole(['super-admin']), async (req, res) => {
-    return res.json("hei super-admin")
 
-})
+    if (req.isAuthenticated()) {
+        res.redirect("http://localhost:5000/instructors")
+    } else {
+        res.redirect("/login-super-admin");
+    }
+}
+)
 
 // Super Admin and Admin Protected Route
 
