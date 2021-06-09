@@ -9,8 +9,9 @@ const { connect } = require("mongoose");
 const { DB, PORT } = require("./config");
 const { success, error } = require('consola')
 
-app.use(cors());
-app.use(express.json());
+const passport = require('passport')
+
+
 
 
 // This connects to the database. The URL etc. is hidden by using a .env file - refer to: https://www.youtube.com/watch?v=uk-iRSj1Ldg ~27minute mark.
@@ -21,7 +22,16 @@ app.use("/", require("./routes/routes")); // Apparently sets the route paths to 
 
 //Middlewares
 app.use(bp.json())
+app.use(cors());
+app.use(express.json());
+app.use(passport.initialize())
 
+
+require("./middlewares/Passport")(passport);
+
+// User router Middlewares
+
+app.use('/api/users', require("./routes/users"));
 
 
 const startApp = async () => {
