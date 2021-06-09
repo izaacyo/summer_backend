@@ -1,6 +1,6 @@
 ## Installed packages
 
-mongoose, express, cors, dotenv
+mongoose, express, cors, dotenv, bcryptjs, body-parser, consola, express-formidable, jsonwebtoken, multer, nodemon, passport, passport-jwt
 
 Mongoose is used to model MongoDB objects in node.js.
 

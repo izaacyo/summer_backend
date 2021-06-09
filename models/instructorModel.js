@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
-// The structure of the items' data in the database is set here, similar to 'instructor(name VARCHAR(20)..'
+// The structure of the items' data in the database is set here, similar to 'instructor(name VARCHAR(20)...'
 const instructorSchema = {
     name: {
         type: String,
-        required: true
+        required: 'Name can not be empty'
     },
     rank: {
         type: String,
-        required: true
+        required: 'Rank can not be empty'
     },
     img: {
         type: String,
